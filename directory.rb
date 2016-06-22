@@ -4,9 +4,12 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index do |student, index|
-    puts "#{index +1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+ students.map do |student|
+   name = student[:name][0].downcase
+   if name.downcase.start_with?('j') #only prints if name begins with j
+     puts "#{student[:name]} (#{student[:cohort]} cohort)"
+   end
+ end
 end
 
 def print_footer(names)
