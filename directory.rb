@@ -4,12 +4,11 @@ def print_header
 end
 
 def print(students)
- students.map do |student|
-   name = student[:name]
-   if name.length < 12 #only print if name less than 12 characters
-     puts "#{student[:name]} (#{student[:cohort]} cohort)"
-   end
- end
+ index = 0
+ while students.length > index
+   puts "#{students[index][:name]} (#{students[index][:cohort]} cohort)"
+      index +=1
+  end
 end
 
 def print_footer(names)
