@@ -5,8 +5,8 @@ end
 
 def print(students)
  students.map do |student|
-   name = student[:name][0].downcase
-   if name.downcase.start_with?('j') #only prints if name begins with j
+   name = student[:name]
+   if name.length < 12 #only print if name less than 12 characters
      puts "#{student[:name]} (#{student[:cohort]} cohort)"
    end
  end
@@ -34,7 +34,7 @@ def input_students
   # return the array of students
   students
 end
-#nothing happens until we call the methods
+
 students = input_students
 print_header
 print(students)
