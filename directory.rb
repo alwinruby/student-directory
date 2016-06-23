@@ -9,16 +9,16 @@ def input_students
   default = 'July'
   until name.empty?
     puts 'Please enter the names of the student'
-    name = gets.chomp.capitalize
+    name = gets.gsub(/\n/,'').capitalize
     break if name.empty?
     puts 'Please enter your cohort (using full month)'
-    cohort = gets.chomp.capitalize
+    cohort = gets.gsub(/\n/,'').capitalize
     puts 'Please enter your hobbies'
-    hobbies = gets.chomp.capitalize
+    hobbies = gets.gsub(/\n/,'').capitalize
     puts 'Please enter your country of birth'
-    birth_country = gets.chomp.capitalize
+    birth_country = gets.gsub(/\n/,'').capitalize
     puts 'Please enter your height'
-    height = gets.chomp
+    height = gets.gsub(/\n/,'')
     if cohort.empty? or !$months.include?(cohort)
       cohort = default
     end
