@@ -6,7 +6,8 @@ end
 def print(students)
  index = 0
  while students.length > index
-   puts "#{students[index][:name]} (#{students[index][:cohort]} cohort)"
+   puts "#{students[index][:name]} #{students[index][:cohort]} cohort " +
+    "#{students[index][:hobbies]} #{students[index][:birth_country]} #{students[index][:height]} "
       index +=1
   end
 end
@@ -16,20 +17,34 @@ def print_footer(names)
 end
 
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
   # create an empty array
   students = []
-  # get the first name
-  name = gets.chomp
+  name = 'Alan'
+
   # while the name is not empty, repeat this code
-  while !name.empty? do
+  until name.empty?
+    puts "Please enter the names of the student"
+    # get the first name
+    name = gets.chomp.capitalize
+    break if name.empty?
+    puts "Please enter your hobbies"
+    # get hobbies
+    hobbies = gets.chomp.capitalize
+    puts "Please enter your country of birth"
+    # get the country
+    birth_country = gets.chomp.capitalize
+    puts "Please enter your height"
+    # get the height
+    height = gets.chomp
+
+    puts "To finish, just hit return twice"
+
     # add the student hash to the array
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: :November, hobbies: hobbies, birth_country: birth_country, height: height}
     puts "Now we have #{students.count} students"
-    # get another name from the user
-    name = gets.chomp
+
   end
+
   # return the array of students
   students
 end
