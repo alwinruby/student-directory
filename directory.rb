@@ -1,13 +1,14 @@
 def print_header
   puts "The students of my cohort at Makers Academy"
-  puts "-------------"
+  puts "-----------------------------------------------------------------------"
 end
 
 def print(students)
  index = 0
  while students.length > index
-   puts "#{students[index][:name]} #{students[index][:cohort]} cohort " +
-    "#{students[index][:hobbies]} #{students[index][:birth_country]} #{students[index][:height]} "
+   puts "#{index + 1}. #{students[index][:name].center(10)} #{students[index][:cohort].to_s.center(15)} " +
+          "#{students[index][:hobbies].center(15)} #{students[index][:birth_country].center(15)} " +
+          "#{students[index][:height].center(15)}"
       index +=1
   end
 end
