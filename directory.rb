@@ -24,7 +24,12 @@ def input_students
     end
     puts 'To finish, just hit return twice'
     students << {name: name, cohort: cohort, hobbies: hobbies, birth_country: birth_country, height: height}
-    puts "Now we have #{students.count} students"
+    #puts "Now we have #{students.count} students"
+    if students.count == 1
+       puts "Now we have #{students.count} student."
+     else
+       puts "Now we have #{students.count} students."
+     end
   end
     students
 end
@@ -45,7 +50,13 @@ def print(students)
 end
 
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  if names.length < 1
+    puts "There are no students at present."
+  elsif names.length == 1
+    puts "Overall, we have 1 great student."
+  else
+    puts "Overall, we have #{names.count} great students."
+  end
 end
 
 def print_cohort(students)
