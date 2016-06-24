@@ -78,13 +78,11 @@ def print_cohort(students)
     puts cohort.each { |details| details }.join(" ")
   end
 end
-
 #students = input_students
 #print_header
 #print(students)
 #print_footer(students)
 #print_cohort(students)
-
 def interactive_menu
   students = []
   loop do
