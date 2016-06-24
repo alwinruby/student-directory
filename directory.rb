@@ -9,16 +9,16 @@ def input_students
   default = 'July'
   until name.empty?
     puts 'Please enter the names of the student'
-    name = gets.gsub(/\n/,'').capitalize
+    name = gets.chop.capitalize
     break if name.empty?
     puts 'Please enter your cohort (using full month)'
-    cohort = gets.gsub(/\n/,'').capitalize
+    cohort = gets.chop.capitalize
     puts 'Please enter your hobbies'
-    hobbies = gets.gsub(/\n/,'').capitalize
+    hobbies = gets.chop.capitalize
     puts 'Please enter your country of birth'
-    birth_country = gets.gsub(/\n/,'').capitalize
+    birth_country = gets.chop.capitalize
     puts 'Please enter your height'
-    height = gets.gsub(/\n/,'')
+    height = gets.chop
     if cohort.empty? or !$months.include?(cohort)
       cohort = default
     end
@@ -26,7 +26,7 @@ def input_students
     students << {name: name, cohort: cohort, hobbies: hobbies, birth_country: birth_country, height: height}
     #puts "Now we have #{students.count} students"
     if students.count == 1
-       puts "Now we have #{students.count} student."
+       puts "Now we have 1 student."
      else
        puts "Now we have #{students.count} students."
      end
@@ -50,22 +50,26 @@ def print(students)
 end
 
 def print_footer(names)
-  if names.length < 1
-    puts "There are no students at present."
+  if names.empty?
+    puts "There are no students in this cohort!"
   elsif names.length == 1
-    puts "Overall, we have 1 great student."
+    puts "Overall, we have 1 great student"
   else
-    puts "Overall, we have #{names.count} great students."
+    puts "Overall, we have #{names.count} great students"
   end
 end
 
 def print_cohort(students)
   cohort_month = []
-  puts "See by specific cohort month? - Enter Full Month Please"
-  month = gets.chomp.capitalize
-  students.map do |student|
-    if student[:cohort]== month
-      cohort_month << [student[:name], student[:hobbies], student[:birth_country], student[:height] ]
+  if students.empty?
+    exit
+  else
+    puts "See by specific cohort month? - Enter Full Month Please"
+    month = gets.chomp.capitalize
+    students.map do |student|
+      if student[:cohort]== month
+        cohort_month << [student[:name], student[:hobbies], student[:birth_country], student[:height] ]
+      end
     end
   end
 
