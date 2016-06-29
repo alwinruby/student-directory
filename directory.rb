@@ -36,17 +36,17 @@ def input_students
   puts "Please enter the name of the student"
   puts "Then add full month of the cohort"
   puts "To finish, just hit return twice"
-  # get the first name
-  name = STDIN.gets.chomp
-  cohort = STDIN.gets.chomp
+  name = 'user_input'
   # while the name is not empty, repeat this code
   while !name.empty? do
-    # add the student hash to the array
-    add_students(name,cohort)
-    puts "Now we have #{@students.count} students"
-    # get another name from the user
     name = STDIN.gets.chomp
     cohort = STDIN.gets.chomp
+    if !name.empty?
+      # add the student hash to the array
+      add_students(name,cohort)
+      puts "Now we have #{@students.count} students"
+    end
+    # get another name from the user
   end
 end
 
